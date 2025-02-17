@@ -55,7 +55,8 @@
 	- It is not a free service.
 	- Better be allocated to a virtual interface than directly to an instance, as it will be easier to move the interface in event of instance failure. The traffic will be redirected to the new attached instance.
 
-![[Pasted image 20240811174512.png]]
+![image](https://github.com/user-attachments/assets/a1479458-c681-40c9-9cb9-e15ea4fb26b6)
+
 
 
 - VPC sharing allows AWS accounts in one organization to share a subnets in a VPC.
@@ -66,7 +67,8 @@
 - Interface endpoints ![[f7712e05-1dbf-46cd-8c87-75a772efee18.avif]]
 
 
-![[Pasted image 20240811191325.png]]
+![image](https://github.com/user-attachments/assets/4c0007f1-8bdd-4995-9443-a41aec2b3b9c)
+
 
 ---
 ### Module 6
@@ -79,7 +81,8 @@
 - EBS volumes are persistent and the instances with an EBS volume attached as the root volume can be stopped and started again without losing the data.
 - EC2 instance store provides storage on disks that are attached to the host computer running the EC2 instance, these instances cannot be started again after being stopped as the data stored is deleted.
 - EBS and EC2 instance store only can be used for the root volume.
-- ![[Pasted image 20240822140152.png]]
+- ![image](https://github.com/user-attachments/assets/0214dc29-e4c1-4154-960d-97ad601fb8d3)
+
 - Rebooted instances stay on the same physical host, have the same public DNS name and public IP if assigned one and retains data on instance store volumes.
 - Starting a stopped instance will move it to a new physical host and will have a new public IP and an external DNS hostname. (private IP and internal DNS hostname do not change)
 - Can use Elastic IP address to maintain a persistent public IP.
@@ -121,8 +124,10 @@
 
 - EFS uses NFS 4.0 or 4.1
 - EFS can be mounted on one subnet in each AZ
--  ![[Pasted image 20240904110605.png]]
-- ![[Pasted image 20240904105919.png]]
+-  ![image](https://github.com/user-attachments/assets/f4202742-38dd-4f32-911f-7a138ec6707b)
+
+- ![image](https://github.com/user-attachments/assets/1d5ce087-51cb-4616-b343-886e913c125d)
+
 
 - Terms:
 	- Archive: object that is stored in S3 glacier, base unit of storage which has an ID and description
@@ -152,7 +157,7 @@
 	- On demand instances or reserved (upfront payment with a contract)
 	- Backup storage???
 	- Inbound transfers are free while outbound transfers are tiered.
-![[Pasted image 20240919100702.png]]
+![image](https://github.com/user-attachments/assets/c16a76b7-6bef-4e96-a091-11474d6ed498)
 
 - DynamoDB terms:
 	- Items: group of attributes that are uniquely identifiable
@@ -164,7 +169,8 @@
 
 - Redshift is a fully managed data warehouse
 - Enables us to run analytics queries against petabytes of structured data
-- ![[Pasted image 20240921200932.png]]
+- ![image](https://github.com/user-attachments/assets/2fd4249f-83b4-4129-b474-d44188674fb2)
+
 ---
 ### Module 9
 
@@ -184,7 +190,8 @@
 - Reliability is a measure of the system's ability to provide functionality when desired by a user
 - It is the probability that the system will function over a period of specified time
 - MTBF is mean time between failures = total time in service/number of failures
-- ![[Pasted image 20241001160146.png]]
+- ![image](https://github.com/user-attachments/assets/3dcef09a-a6e2-401b-85ac-deedb28a8abb)
+
 - Availability is **a percentage uptime (such as 99.9%) over a period of time (commonly a month or year)**
 - Availability = uptime / total time
 - Five nines = 99.999
@@ -202,12 +209,14 @@
 		- Layer 4, TCP UDP TLS
 		- Route based on IP protocol data
 	- Classic load balancer (older gen)
-- ![[Pasted image 20241002173516.png]]
+- ![image](https://github.com/user-attachments/assets/dde13a09-6aef-4561-9c22-ed0bbcb4a839)
+
 
 -  EC2 auto scaling provides several options: Manual, scheduled, dynamic, on-demand, predictive.
-- ![[Pasted image 20241006153122.png]]
-- ![[Pasted image 20241006153341.png]]
+- ![image](https://github.com/user-attachments/assets/74f3db70-1406-4644-957b-820b2b6263cc)
+
+- ![image](https://github.com/user-attachments/assets/b22e361b-fd68-4e8d-9e07-323aea9cc60f)
+
 - Predictive scaling uses actual historical data of your workloads, and creates a forecast for the expected usage
 - Scaling policies are policies you define (i.e CPUutiliztation in EC2)
-- ![[Pasted image 20241006154159.png]]
--
+- ![image](https://github.com/user-attachments/assets/f11a1bf8-8480-41d7-946b-c8b666f0c6e7)
