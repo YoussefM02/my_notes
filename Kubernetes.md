@@ -67,7 +67,8 @@
 	- Under spec, define a template for pod and number of replicas, and in ReplicaSet it is required to add a selector.
 	- Selector property is used in ReplicaSets because we can add pods that were created before the ReplicaSet, it is a label selector used to identify potential Pods to acquire.
 -  To update the ReplicaSet `kubectl replace -f ReplicaSet-definition.yml` after updating file OR `kuberctl scale --replicas=6 -f ReplicaSet-definition.yml` OR `kuberctl scale --replicas=6 ReplicaSet myapp-ReplicaSet`
--  ![[Pasted image 20241024142221.png]]
+-  ![image](https://github.com/user-attachments/assets/b805885e-fe4d-4eb1-964e-f8533da808db)
+
 - The definition file for deployments is the same as ReplicaSet, with king being Deployment instead [link](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
 - The deployment automatically creates a ReplicaSet
 - Rolling update is the default deployment strategies for updates to deployments
@@ -93,7 +94,8 @@
 - Services are objects used to expose pods to other pods or users
 - Service is like a virtual server inside the node, it has an IP address that is called the cluster IP of the service
 - NodePort service is used to listen to a node's port and forward traffic to pods
-- ![[Pasted image 20241025002326.png]]
+- ![image](https://github.com/user-attachments/assets/3e358cf9-b0d8-475f-8d2f-a768dfc2ba97)
+
 - 3 ports are involved in NodePort (from POV of the service):
 	- TargetPort: port of the pod
 	- Port: service's port (cluster IP : port). This is the only mandatory field, targetPort is assumed to be the same as this port if not specified
@@ -103,15 +105,18 @@
 - labels and selectors are used to link services to pods
 - If multiple pods with same labels exist (replicas), the NodePort service acts as load balancer
 - If the pods are on different nodes, services can span across multiple nodes, it uses the same configuration applied
-- ![[Pasted image 20241025010827.png]]
-- ![[Pasted image 20241025153809.png]]
+- ![image](https://github.com/user-attachments/assets/fd7f33fa-da17-48e9-9270-f902c3684b66)
+
+- ![image](https://github.com/user-attachments/assets/9af26da9-7ab1-4139-a0b3-c3f947adf186)
+
 - ClusterIP  service is used as interface for pods to communicate with each other inside the cluster
 - The definition file for ClusterIP is the same as NodePort, but it doesn't specify a NodePort.
 - In the selector (matchLables is not used)
 - **ClusterIP** can mean 2 things: a type of service which is only accessible within a Kubernetes cluster, or the internal ("virtual") IP of components within a Kubernetes cluster
 - If we have 2 nodes, each one having a different pod. A service is configured to make users able to reach pods. The user can use any of the 2 nodes' IP to connect to a pod. 
 	- IP1 + Port of pod1 OR IP2+ Port of pod2
-	- ![[Pasted image 20241025175501.png]]
+	- ![image](https://github.com/user-attachments/assets/270e6ef3-5b43-4591-879e-68dfddab5703)
+
 - LoadBalancer service type is used only with supported cloud providers, setting them outside of them will lead to the service type being a NodePort
 - There is a default ClusterIP service at launch
 - Kubernetes endpoints are essentially a collection of IP addresses and port numbers that define the backend pods associated with a Kubernetes service
