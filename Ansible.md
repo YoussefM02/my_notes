@@ -25,7 +25,8 @@
 - Can work with localhost if specified in the inventory file
 - Use keys instead of specifying SSH password (ansible vault?)
 - We use parent-child relationships to group servers under a general umbrella, then use child groups for specific configs for each group
-- ![[Pasted image 20241029205032.png]]
+- ![image](https://github.com/user-attachments/assets/ba007980-fd33-4bb0-9232-889fe54669ca)
+
 ---
 
 ### Section 4 - Ansible variables:
@@ -34,8 +35,10 @@
 - Variables can be defined in the playbook in a vars dictionary or in a file named variables
 - `{{ variable_name }}` to call a variable, Jinja2 Templating
 - If variables file is named after the hosts in the playbook it is automatically called
-- ![[Pasted image 20241029210405.png]]
-- ![[Pasted image 20241029210618.png]]
+- ![image](https://github.com/user-attachments/assets/13fb8499-cbd8-43a8-a69e-a0bfee329440)
+
+- ![image](https://github.com/user-attachments/assets/2926420b-bfb3-4d92-8015-71edb009bd4f)
+
 - Variable types: (all is declared with yaml format)
 	- String
 	- Number: can be used in math operations
@@ -53,7 +56,8 @@
 	- Play: variables defined in the play only using vars dictionary
 	- Global
 - When a playbook starts, a subprocess is created for each host, then variable interpolation assigning the variable to each host
-- ![[Pasted image 20241103192824.png]]
+- ![image](https://github.com/user-attachments/assets/abd7634a-6bef-4f30-a6b5-697532e92c13)
+
 -  Magic variable `hostvars[hostname].variablename` is used to access the variables defined in other host’s scope
 - Magic variables
 	- `Groups` takes group name and returns the hosts in that group
@@ -69,7 +73,8 @@
 ### Section 5 - Ansible Playbooks
 
 - A task is a single action to be performed on the host
-- ![[Pasted image 20241103210044.png]]
+- ![image](https://github.com/user-attachments/assets/1724927b-9013-480c-b116-0c5974dafaec)
+
 - The actions run by tasks are called modules like: command, script, yum, service and can be viewed by `ansible-doc -l`
 - Run playbooks with `ansible-playbook playbook.yml`
 - Check mode is used to verify playbooks, it is like dry run so the changes are not applied to hosts `--check`, not all modules support check mode
@@ -78,11 +83,13 @@
 - ansible-lint is used on playbooks for linting
 - Can use conditionals with tasks using `when: <condition>` statement, can use `and`&`or`
 - We can use `register: variable_name` to record the result of the output
-- ![[Pasted image 20241104134329.png]]
+- ![image](https://github.com/user-attachments/assets/982af5be-53e4-4dda-a33a-08ae9fc4283f)
+
 - Inside a task we can create loops, a loop can have values under it or a list defined previously in a variable.
 - Loops store values in a variable called item
 - To loop on more than one value at a time, we can use `loop` an pass a list of dictionaries, can be passed as JSON also
-- ![[Pasted image 20241104210422.png]]
+- ![image](https://github.com/user-attachments/assets/8ff949d1-6977-4746-af75-84d26730bcf0)
+
 - Can also use `with_items` instead of loop, there are multiple `with_*` to use, * are called lookup plugins
 ---
 
@@ -90,10 +97,12 @@
 
 - In the command module, parameters are passed after the actual command like `command: cat resolv.conf chdir=/etc`  
 - In the service module, name and state can be parameters or passed as yaml dictionary
-- ![[Pasted image 20241104233029.png]]
+- ![image](https://github.com/user-attachments/assets/9bcbd3a1-c794-4c96-95ad-9b54228ba21a)
+
 - The idea of idempotence is that ansible can run the playbook more than one time and ansible should report everything is in expected state
 - Plugins are used to extend ansible's functionality, they usually execute on the ansible host itself not the inventory hosts
-- ![[Pasted image 20241113154215.png]]
+- ![image](https://github.com/user-attachments/assets/9b8641d9-d8f0-4fb0-a320-edfea0db40ef)
+
 - `ansible-doc` command is used to see the information about Ansible modules from command line
 - System modules are actions to be performed at a system level such as modifying the users and groups on a system, modifying iptables, starting/stopping the service etc
 ---
